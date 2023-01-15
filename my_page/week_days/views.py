@@ -15,12 +15,10 @@ week_inf = {
 
 # Create your views here.
 def get_week(request, week: str):
-    response = render_to_string('week_days/greeting.html')
-    return HttpResponse(response)
-    # if week_inf.get(week, None):
-    #     return HttpResponse(f'Сегодня {week_inf[week]}')
-    # else:
-    #     return HttpResponseNotFound(f' День {week} не найден')
+    if week_inf.get(week, None):
+        return HttpResponse(f'Сегодня {week_inf[week]}')
+    else:
+        return HttpResponseNotFound(f' День {week} не найден')
 
 
 def get_week_num(request, week: int):
@@ -30,3 +28,8 @@ def get_week_num(request, week: int):
     name_day = week_lst[week - 1]
     response_url = reverse("name-day", args=(name_day, ))
     return HttpResponseRedirect(response_url)
+
+
+def get_week_html(request):
+    response = render_to_string('week_days/greeting.html')
+    return HttpResponse(response)

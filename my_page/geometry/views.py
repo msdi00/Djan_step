@@ -26,6 +26,5 @@ def figur_area(request, figur, x=0, y=0):
 
 
 def get_rectangle_area(request, x=0, y=0):
-    redirect_url = reverse("geom-name", args=("rectangle", x, y))
-    print(redirect_url)
+    redirect_url = reverse("geom-name", args=("square", x, y))
     return HttpResponseRedirect(redirect_url)

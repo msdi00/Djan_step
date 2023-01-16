@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/index.css' %}">
+{% endblock %}
+
+
 {% block title %}
     Main menu
 {% endblock %}
@@ -10,11 +17,11 @@
 
     <h2>Content index.html</h2>
 
-    <ui>
+    <ul>
         {% for zodiac in zodiacs%}
         <li><a href="{% url 'name-sign' zodiac=zodiac %}">{{ zodiac|capfirst }}</a></li>
         {# если ставить / в начале href подставляется срузу после доменного имени #}
         {# <b>{{ forloop.counter }}</b>. нумерует при использовании for#}
         {% endfor %}
-    </ui>
+    </ul>
 {% endblock %}

@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ name_zodiac|capfirst }}</title>
-</head>
-<body>
-    <h1>{{ descr_zodiac }}</h1>
-    <p>{{ nums_lst }}</p>
-    <p>{{ nums_tuple }}</p>
-    <p>{{ descr_zodiac|title }}</p>
-    <p>{{ descr_zodiac }}</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ name_zodiac|capfirst }}
+{% endblock %}
+
+{% block content %}
+    <h2>Content info_zodiac.html</h2>
+    <h1>{{ descr_zodiac|default:"Неверное назвзание шаблона" }}</h1> {# затестил фильтры в шаблонах #}
+    {#<p>{{ nums_tuple|title }}</p>#}
+    {#<p>{{ name_class.model }} and {{ name_class.brand }}</p>#}
+    {% include 'includes/navbar.html' %}
+{% endblock %}
+

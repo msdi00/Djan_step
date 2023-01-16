@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Type</title>
+</head>
+<body>
+    <ui>
+        {% for zodiac in zodiacs%}
+        <li><i><b>{{ forloop.counter }}</b>. <a href="{% url 'name-sign' zodiac=zodiac %}">{{ zodiac|capfirst }}</a></i></li>
+        {# если ставить / в начале href подставляется срузу после доменного имени #}
+        {% endfor %}
+    </ui>
+</body>
+</html>

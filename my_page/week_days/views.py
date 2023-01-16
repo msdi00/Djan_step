@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
 
+
 week_inf = {
     'monday': 'Понедельник',
     'tuesday': 'Вторник',

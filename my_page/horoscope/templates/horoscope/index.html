@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Main menu
+{% endblock %}
+
+{% block content %}
+
+    {% include 'includes/navbar.html' with a=200%}
+
+    <h2>Content index.html</h2>
+
+    <ui>
+        {% for zodiac in zodiacs%}
+        <li><a href="{% url 'name-sign' zodiac=zodiac %}">{{ zodiac|capfirst }}</a></li>
+        {# если ставить / в начале href подставляется срузу после доменного имени #}
+        {# <b>{{ forloop.counter }}</b>. нумерует при использовании for#}
+        {% endfor %}
+    </ui>
+{% endblock %}
